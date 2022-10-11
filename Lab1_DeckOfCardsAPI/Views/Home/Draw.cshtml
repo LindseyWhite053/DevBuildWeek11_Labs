@@ -1,0 +1,29 @@
+﻿@model CardResponse;
+@{
+    ViewData["Title"] = "Draw";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Your Hand</h1>
+    <div class="row">
+    @foreach (Card card in Model.cards)
+    {
+        <div class="col-lg-2 m-2">
+            @card.value of @card.suit <br/>
+            <img src="@card.image"/>
+        </div>
+    }
+    </div>
+    @if (@Model.remaining < 5)
+    {
+        <form method="post" action="/home/index">
+            <input type="submit" value="Draw from a new deck"/>
+        </form>        
+    }
+    else
+    {
+        <form method="post" action="/home/draw?deck_id=@Model.deck_id">
+            <input type="submit" value="Draw"/>
+        </form>
+    }
+</div>
