@@ -11,10 +11,13 @@
         <div class="col-lg-2 m-2">
             @card.value of @card.suit <br/>
             <img src="@card.image"/>
+            <form id="draw">
+               Keep <input type="checkbox">
+            </form>
         </div>
     }
     </div>
-    <form method="post" action="/home/draw?deck_id=@Model.deck_id">
-        <input type="submit" value="Draw"/>
+    <form id="draw" method="post" action="/home/draw?deck_id=@Model.deck_id">
+        <input type="submit" value="Draw 5 Cards"/>
     </form>
 </div>

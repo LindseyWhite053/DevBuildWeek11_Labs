@@ -1,0 +1,32 @@
+﻿@model Movie;
+
+@{
+    ViewData["Title"] = "FilmDetails";
+}
+
+<h1>Episode @Model.Episode : @Model.Title (@Model.Year)</h1>
+
+<div>
+    <h2>Characters:</h2>
+    <div>
+        @foreach (Character c in Model.Characters)
+        {
+            <div>
+                @c.CharName
+            </div>
+        }
+    </div>
+</div>
+
+<div>
+    <h2>Star Ships:</h2>
+    <div>
+        @foreach (Starship s in Model.ShipNames)
+        {
+            <div>
+                @s.ShipName @s.ShipModel $@s.Cost
+            </div>
+        }
+    </div>
+
+</div>
